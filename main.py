@@ -4,30 +4,32 @@ import sys
 
 
 
-# Parameters :
+# Parameters / Variables :#######################################################################
 
 PROBA_DEATH = 50  #number out of 100 . the black plague was 100%. smallpox was ~30%-35%
 CONTAGION_RATE = 4.5  # This is the R0 factor. Number of people an individual will infect on average
 INFECTION_TIME = 10 # 10 is a good for watching
 MAX_CONNECTED_NEIGHBOURS = 50 # k
 VACCINATION_RATE = 0
-SIMULATION_SPEED = 25   # time between days in milliseconds. 0: fastest.
+SIMULATION_SPEED = 60   # time between days in milliseconds. 0: fastest.
                         # 500 means every day the simulation pauses for 500 ms
                         # 25 is good for watching
 TYPE_GRAPH = "CIRCULAR" # "CIRCULAR", "ALEATORY","MIX"
 nb_rows = 50
 nb_cols = 50
-k2 =2 #this is k'
-# Functions :
-
+k2 =2  #this is k'
+PARTY_TIME = 10000
+TYPE_GRAPH = "dynamic" # "static" or "dynamic"
+# Functions :#####################################################################################
 #STATES :
 # 0: healthy
 # 1: immune
 # -1: dead
 
-global states, states_temp
+global states, states_temp , Graph_edges
 states = [[0] * nb_cols for i1 in range(nb_rows)]
 states_temp = [[0] * nb_cols for i1 in range(nb_rows)]
+Graph_edges=[[0] * nb_cols for i1 in range(nb_rows)]
 
 PROBA_INFECT = CONTAGION_RATE * 10
 
@@ -48,9 +50,36 @@ def get_neighbour(x, y): #should be depending on type of graph
         y2 = nb_rows - 1
     return [x2, y2]
 
+## Circular Graph :
+#init the Graph_edges for Circular graph:
+#=>remplir chaque case du graph par couple [x,y] liée
+#def init_circular_graph_edges():
+
+#Functions for circular graph
+#return connected [x1,y1] to (x,y)
+def get_neighbour_circular_static(x,y):
+    return Graph_edges[x][y]
+
+def infect_circular_static(neighbours,in_touch):
+    if in_touch == 1:
+        x2 = Graph_edges[x][y][0]
+        y2 = Graph_edges[x][y][1]
+        neigh_state = states[x2][y2]
+        if neigh_state == 0:
+            states_temp[x2][y2] = 10
+    else:
+        x1=neighbours[0][0]
+        x2=neighbours[0][1]
+        y1=neighbours[1][0]
+        y2=neighbours[1][1]
+        if states[x2][y2] == 0:
+            states_temp[x2][y2] = 10
+        if states[x1][y1] == 0:
+            states_temp[x1][y1] = 10
+
 # neighbours are (x-1,y) and (x+1,y)
 #returns [[x1,x2],[y1,y2]]
-def get_neighbour_circular(x,y): #selon x et y (modulo n)
+def get_neighbour_circular_dynamic(x,y): #selon x et y (modulo n)
     if x % nb_rows != 0 and x % nb_rows != nb_rows - 1 :
         return [[x-1,x+1],[y,y]]
     if x % nb_rows == 0:
@@ -65,7 +94,7 @@ def get_neighbour_circular(x,y): #selon x et y (modulo n)
             return [[nb_rows - 2,0],[y,0]]
 
 #in_touch is k' defined in subject
-def infect_circular(neighbours,in_touch):
+def infect_circular_dynamic(neighbours,in_touch):
     if in_touch == 1:
         idx=randrange(1)
         x2 = neighbours[0][idx]
@@ -152,8 +181,9 @@ def main():
     death_toll = 0 # count of deaths
     while True:
         pygame.time.delay(SIMULATION_SPEED) # -------> simulation speed
-        it = it + 1
-        if it <= 10000 and it >= 2:
+        it = it + 1 # day passes
+        #if type_graph static -> generate the seed for k' here !?
+        if it <= PARTY_TIME and it >= 2:
             states_temp = states.copy()
             for x in range(nb_cols):
                 for y in range(nb_rows):
@@ -161,7 +191,7 @@ def main():
                     if state == -1: # --------> if dead
                         pass
                     if state >= 10:
-                        states_temp[x][y] = state + 1 # ----------> each day pass
+                        states_temp[x][y] = state + 1
                     if state >= INFECTION_TIME + 10: #20 INFECTION_TIME + 10
                         if randrange(99) < PROBA_DEATH:
                             states_temp[x][y] = -1
@@ -170,8 +200,13 @@ def main():
                     if state >= 10 and state <= 20:
                         if randrange(99) < PROBA_INFECT:
                             #neighbour = get_neighbour(x, y)
-                            neighbour=get_neighbour_circular(x,y)
-                            infect_circular(neighbour,k2)
+
+                            if TYPE_GRAPH == "static":
+                                neighbour=get_neighbour_circular_static(x,y)
+                                infect_circular_static(neighbour,k2)
+                            else:
+                                neighbours=get_neighbour_circular_dynamic(x,y)
+                                infect_circular_dynamic(neighbours,k2)
                             #x2 = neighbour[0]
                             #y2 = neighbour[1]
                             #neigh_state = states[x2][y2]
