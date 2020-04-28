@@ -17,8 +17,7 @@ SIMULATION_SPEED = 25   # time between days in milliseconds. 0: fastest.
 TYPE_GRAPH = "CIRCULAR" # "CIRCULAR", "ALEATORY","MIX"
 nb_rows = 50
 nb_cols = 50
-
-k2 = 1
+k2 =2 #this is k'
 # Functions :
 
 #STATES :
@@ -79,9 +78,10 @@ def infect_circular(neighbours,in_touch):
         x2=neighbours[0][1]
         y1=neighbours[1][0]
         y2=neighbours[1][1]
-        states_temp[x1][y1] = 10
-        states_temp[x2][y2] = 10
-    return
+        if states[x2][y2] == 0:
+            states_temp[x2][y2] = 10
+        if states[x1][y1] == 0:
+            states_temp[x1][y1] = 10
 
 
 
