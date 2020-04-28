@@ -4,7 +4,7 @@ import sys
 
 
 
-############## Parameters :
+# Parameters :
 
 PROBA_DEATH = 50  #number out of 100 . the black plague was 100%. smallpox was ~30%-35%
 CONTAGION_RATE = 4.5  # This is the R0 factor. Number of people an individual will infect on average
@@ -18,7 +18,8 @@ TYPE_GRAPH = "CIRCULAR" # "CIRCULAR", "ALEATORY","MIX"
 nb_rows = 50
 nb_cols = 50
 
-############## Functions :
+k2 = 1
+# Functions :
 
 #STATES :
 # 0: healthy
@@ -49,11 +50,23 @@ def get_neighbour(x, y): #should be depending on type of graph
     return [x2, y2]
 
 # neighbours are (x-1,y) and (x+1,y)
+#returns [[x1,x2],[y1,y2]]
 def get_neighbour_circular(x,y): #selon x et y (modulo n)
-    return [[x-1,x+1],[y,y]]
+    if x % nb_rows != 0 and x % nb_rows != nb_rows - 1 :
+        return [[x-1,x+1],[y,y]]
+    if x % nb_rows == 0:
+        if y >= 1:
+            return [[nb_rows -1,1],[y-1,y]]
+        else:
+            return [[nb_rows -1,1],[nb_cols -1,y]]
+    if x % nb_rows == nb_rows - 1 :
+        if y < nb_cols -1:
+            return [[nb_rows - 2,0],[y,y+1]]
+        else:
+            return [[nb_rows - 2,0],[y,0]]
 
 #in_touch is k' defined in subject
-def infect_circular(neighbours,in_touch): #to test including states
+def infect_circular(neighbours,in_touch):
     if in_touch == 1:
         idx=randrange(1)
         x2 = neighbours[0][idx]
@@ -64,16 +77,13 @@ def infect_circular(neighbours,in_touch): #to test including states
     else:
         x1=neighbours[0][0]
         x2=neighbours[0][1]
-        y=neighbours[1][0]
-        states_temp[x1][y] = 10
-        states_temp[x2][y] = 10
+        y1=neighbours[1][0]
+        y2=neighbours[1][1]
+        states_temp[x1][y1] = 10
+        states_temp[x2][y2] = 10
+    return
 
 
-#                        x2 = neighbour[0]
- #                            y2 = neighbour[1]
-  #                           neigh_state = states[x2][y2]
-   #                          if neigh_state == 0:
-    #                             states_temp[x2][y2] = 10 # -------> infection done here
 
 global display
 global myfont
@@ -122,7 +132,7 @@ def main():
 
     global display
     display=pygame.display.set_mode((800,750),0,32)
-    pygame.display.set_caption("Virus Epidemic")
+    pygame.display.set_caption("COVID-19")
 
     init_screen()
 
@@ -161,7 +171,7 @@ def main():
                         if randrange(99) < PROBA_INFECT:
                             #neighbour = get_neighbour(x, y)
                             neighbour=get_neighbour_circular(x,y)
-                            infect_circular(neighbour,1)
+                            infect_circular(neighbour,k2)
                             #x2 = neighbour[0]
                             #y2 = neighbour[1]
                             #neigh_state = states[x2][y2]
