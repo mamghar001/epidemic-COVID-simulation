@@ -10,6 +10,7 @@ PROBA_DEATH = 50  #number out of 100 . the black plague was 100%. smallpox was ~
 CONTAGION_RATE = 4.5  # This is the R0 factor. Number of people an individual will infect on average
 INFECTION_TIME = 10 # 10 is a good for watching
 MAX_CONNECTED_NEIGHBOURS = 50 # k
+
 VACCINATION_RATE = 0
 SIMULATION_SPEED = 60   # time between days in milliseconds. 0: fastest.
                         # 500 means every day the simulation pauses for 500 ms
@@ -17,9 +18,11 @@ SIMULATION_SPEED = 60   # time between days in milliseconds. 0: fastest.
 TYPE_GRAPH = "CIRCULAR" # "CIRCULAR", "ALEATORY","MIX"
 nb_rows = 50
 nb_cols = 50
-k2 =2  #this is k'
+
 PARTY_TIME = 10000
-TYPE_GRAPH = "dynamic" # "static" or "dynamic"
+TYPE_GRAPH = "static" # "static" or "dynamic"
+k2 = 1  #this is k'
+
 # Functions :#####################################################################################
 #STATES :
 # 0: healthy
@@ -50,32 +53,7 @@ def get_neighbour(x, y): #should be depending on type of graph
         y2 = nb_rows - 1
     return [x2, y2]
 
-## Circular Graph :
-#init the Graph_edges for Circular graph:
-#=>remplir chaque case du graph par couple [x,y] liée
-#def init_circular_graph_edges():
-
-#Functions for circular graph
-#return connected [x1,y1] to (x,y)
-def get_neighbour_circular_static(x,y):
-    return Graph_edges[x][y]
-
-def infect_circular_static(neighbours,in_touch):
-    if in_touch == 1:
-        x2 = Graph_edges[x][y][0]
-        y2 = Graph_edges[x][y][1]
-        neigh_state = states[x2][y2]
-        if neigh_state == 0:
-            states_temp[x2][y2] = 10
-    else:
-        x1=neighbours[0][0]
-        x2=neighbours[0][1]
-        y1=neighbours[1][0]
-        y2=neighbours[1][1]
-        if states[x2][y2] == 0:
-            states_temp[x2][y2] = 10
-        if states[x1][y1] == 0:
-            states_temp[x1][y1] = 10
+# Circular Graph :
 
 # neighbours are (x-1,y) and (x+1,y)
 #returns [[x1,x2],[y1,y2]]
@@ -96,7 +74,7 @@ def get_neighbour_circular_dynamic(x,y): #selon x et y (modulo n)
 #in_touch is k' defined in subject
 def infect_circular_dynamic(neighbours,in_touch):
     if in_touch == 1:
-        idx=randrange(1)
+        idx=randrange(2)
         x2 = neighbours[0][idx]
         y2 = neighbours[1][idx]
         neigh_state = states[x2][y2]
@@ -112,6 +90,39 @@ def infect_circular_dynamic(neighbours,in_touch):
         if states[x1][y1] == 0:
             states_temp[x1][y1] = 10
 
+#Functions for circular graph
+
+#init the Graph_edges for Circular graph:
+#=>remplir chaque case du graph par couple [x,y] liée
+
+def init_circular_graph_edges():
+    for i in range(nb_cols) :
+        for j in range(nb_rows):
+            if not isinstance(Graph_edges[i][j],list) :
+                idx=randrange(2)
+                neighbours=get_neighbour_circular_dynamic(j,i)
+                connected_x=neighbours[0][idx]
+                connected_y=neighbours[1][idx]
+                Graph_edges[i][j]=[connected_x,connected_y]
+                Graph_edges[connected_y][connected_x]=[i,j]
+
+#init_circular_graph_edges()
+idx = randrange(2)
+def infect_circular_static(x,y,in_touch):
+    if in_touch == 1:
+        if idx  ==1:
+            states_temp[4][5] = 10
+        else:
+            states_temp[6][5] = 10
+    else:
+        x1=neighbours[0][0]
+        x2=neighbours[0][1]
+        y1=neighbours[1][0]
+        y2=neighbours[1][1]
+        if states[x2][y2] == 0:
+            states_temp[x2][y2] = 10
+        if states[x1][y1] == 0:
+            states_temp[x1][y1] = 10
 
 
 global display
@@ -143,6 +154,9 @@ def vaccinate():
             if randrange(99) < VACCINATION_RATE:
                 states[x][y] = 1
 
+# 0: healthy
+# 1: immune
+# -1: dead
 
 def count_dead():
     global states
@@ -153,6 +167,32 @@ def count_dead():
                 count = count + 1
     return count
 
+def count_healthy():
+    global states
+    count = 0
+    for x in range(nb_cols):
+        for y in range(nb_rows):
+            if states[x][y] == 0:
+                count = count + 1
+    return count
+
+def count_immune():
+    global states
+    count = 0
+    for x in range(nb_cols):
+        for y in range(nb_rows):
+            if states[x][y] == 1:
+                count = count + 1
+    return count
+
+def count_ill():
+    global states
+    count = 0
+    for x in range(nb_cols):
+        for y in range(nb_rows):
+            if states[x][y] != -1 and states[x][y] != 0 and states[x][y] != 1:
+                count = count + 1
+    return count
 
 def main():
     pygame.init()
@@ -179,6 +219,7 @@ def main():
 
     it = 0
     death_toll = 0 # count of deaths
+    ill_toll = 0
     while True:
         pygame.time.delay(SIMULATION_SPEED) # -------> simulation speed
         it = it + 1 # day passes
@@ -202,8 +243,8 @@ def main():
                             #neighbour = get_neighbour(x, y)
 
                             if TYPE_GRAPH == "static":
-                                neighbour=get_neighbour_circular_static(x,y)
-                                infect_circular_static(neighbour,k2)
+                                neighbour=get_neighbour_circular_dynamic(x,y)
+                                infect_circular_static(x,y,k2)
                             else:
                                 neighbours=get_neighbour_circular_dynamic(x,y)
                                 infect_circular_dynamic(neighbours,k2)
@@ -214,6 +255,13 @@ def main():
                             #    states_temp[x2][y2] = 10 # -------> infection done here
             states = states_temp.copy()
             death_toll = count_dead()
+            #ill_toll = count_ill()
+            #healthy_toll = count_healthy()
+            #immune_toll = count_immune()
+            #print("number of Healthy : ",healthy_toll)
+            #print("number of Immune : ",immune_toll)
+            #print("number of ILL : ",ill_toll)
+            #print("number of Dead : ",death_toll)
         pygame.draw.rect(display, WHITE, (450, 30, 80, 50))
         textsurface = myfont.render(str(death_toll), False, (0, 0, 0))
         display.blit(textsurface, (450, 30))
