@@ -15,15 +15,15 @@ VACCINATION_RATE = 0
 SIMULATION_SPEED = 60   # time between days in milliseconds. 0: fastest.
                         # 500 means every day the simulation pauses for 500 ms
                         # 25 is good for watching
-TYPE_GRAPH = "CIRCULAR" # "CIRCULAR", "ALEATORY","MIX"
+TYPE_GRAPH = "CUBIC" # "CIRCULAR","CUBIC", "ALEATORY","MIX"
 nb_rows = 50
 nb_cols = 50
 
 PARTY_TIME = 10000
-TYPE_GRAPH = "static" # "static" or "dynamic"
-k2 = 1  #this is k'
+TYPE_STATE = "dynamic" # "static" or "dynamic"
+k2 = 2  #this is k'
 
-# Functions :#####################################################################################
+# Functions :####################################################################################
 #STATES :
 # 0: healthy
 # 1: immune
@@ -52,6 +52,13 @@ def get_neighbour(x, y): #should be depending on type of graph
     if y2 >= nb_rows:
         y2 = nb_rows - 1
     return [x2, y2]
+
+def infect(neighbour):
+    x2 = neighbour[0]
+    y2 = neighbour[1]
+    neigh_state = states[x2][y2]
+    if neigh_state == 0:
+        states_temp[x2][y2] = 10
 
 # Circular Graph :
 
@@ -241,13 +248,16 @@ def main():
                     if state >= 10 and state <= 20:
                         if randrange(99) < PROBA_INFECT:
                             #neighbour = get_neighbour(x, y)
-
-                            if TYPE_GRAPH == "static":
-                                neighbour=get_neighbour_circular_dynamic(x,y)
-                                infect_circular_static(x,y,k2)
-                            else:
-                                neighbours=get_neighbour_circular_dynamic(x,y)
-                                infect_circular_dynamic(neighbours,k2)
+                            if TYPE_GRAPH == "CIRCULAR":
+                                if TYPE_STATE == "static":
+                                    neighbour=get_neighbour_circular_dynamic(x,y)
+                                    infect_circular_static(x,y,k2)
+                                else:
+                                    neighbours=get_neighbour_circular_dynamic(x,y)
+                                    infect_circular_dynamic(neighbours,k2)
+                            if TYPE_GRAPH == "CUBIC":
+                                neighbour=get_neighbour(x,y)
+                                infect(neighbour)
                             #x2 = neighbour[0]
                             #y2 = neighbour[1]
                             #neigh_state = states[x2][y2]
