@@ -11,23 +11,23 @@ PROBA_DEATH = 3.5 #3.5% is realistic
                        
 CONTAGION_RATE = 4  # This is the R0 factor.
 
-INFECTION_TIME = 10 # 14 is realistic
-
 SIMULATION_SPEED = 60   # time between days in milliseconds. 0: fastest.
                         # 500 means every day the simulation pauses for 500 ms
                         # 25 is good for watching
-
+                
 TYPE_GRAPH = "PERSONALISED" # "CIRCULAR","PERSONALISED", "ALEATORY","MIX"
 TYPE_STATE = "dynamic" # "static" or "dynamic"
 
 PARTY_TIME = 180 #180 (6 month)
 
-case_confined = 2  #0 for "no tests"
+case_confined = 4  #0 for "no tests"
                   #1 for "no tests but with quarantine"
                   #2 for "for tests on relatives of the deceased"
                   #3 for "random testing"
+                  #4 fore "combination of 2 and 3"
                   
 Probability_test = 70 # 70% the probability of correctness of covid test
+Number_tests = 100 # number of tests daily
 
 VACCINATION_RATE = 0  # 0 to 100
 
@@ -51,6 +51,7 @@ states_temp = [[0] * nb_cols for i1 in range(nb_rows)]
 Graph_edges=[[0] * nb_cols for i1 in range(nb_rows)]
 
 PROBA_INFECT = CONTAGION_RATE * 10
+INFECTION_TIME = 10 
 MAX_CONNECTED_NEIGHBOURS = 50 # k
 k2 = 1  #this is k' (or in code : in_touch)
 
@@ -183,6 +184,15 @@ def confine_with_test(x,y):
         if randrange(99) < Probability_test:
             states_temp[x][y] = -100
 
+def tests(n):
+    for i in range(n):
+        incx = randrange(nb_rows - 1)
+        incy = randrange(nb_cols - 1)
+        if states_temp[incx][incy] >= 10:
+            if randrange(99) < Probability_test:
+                states_temp[incx][incy] = -100
+        print("Tests done on (",incx,incy,")")
+        
 
 global display
 global myfont
@@ -313,7 +323,7 @@ def main():
                                 for l in range(len(neighbours)):
                                     confine(neighbours[l][0],neighbours[l][1])
                                     print("Confined _case1_(",x,y,")")
-                            if case_confined == 2:
+                            if case_confined == 2 or case_confined == 4:
                                 neighbours = get_all_neighbours(x,y)                                
                                 for l in range(len(neighbours)):
                                     confine_with_test(neighbours[l][0],neighbours[l][1])
@@ -331,6 +341,8 @@ def main():
                             if TYPE_GRAPH == "PERSONALISED":
                                 neighbour=get_neighbour(x,y)
                                 infect(neighbour)
+            if case_confined == 3 or case_confined == 4 :
+                tests(Number_tests)
             states = states_temp.copy()
             death_toll = count_dead()
             Dead.append(death_toll)
@@ -350,7 +362,7 @@ def main():
                     color = RED 
                 if states[x][y] == -1:
                     color = WHITE
-                if states[x][y] < 0:
+                if states[x][y] < -1:
                     color = YELLOW
                 pygame.draw.circle(display, color, (100 + x * 12 + 5, 100 + y * 12 + 5), 5)
                 pygame.draw.rect(display, WHITE, (100 + x * 12 + 3, 100 + y * 12 + 4, 1, 1))
@@ -383,7 +395,7 @@ def main():
                         if event.key == pygame.K_SPACE:
                             initial_pause = False
                             if Dead != []:
-                                plt.figure()
+                                #plt.figure()
                                 plt.plot(Dead,label = "Dead count",color='r')
                                 plt.plot(ill_toll,label = "Ill count",color='b')
                                 plt.plot(healthy_toll,label = "Healthy count",color='k')
@@ -392,8 +404,10 @@ def main():
                                 plt.grid(True, which="both", linestyle='--')
                                 plt.xlabel("Jours")
                                 plt.ylabel("Nombre de presonnes")
-                                plt.title("Avec test sur proches des défunts (cas 3) graphe personnalisé")
+                                plt.title("combinaison des stratégies 2 (100 tests/jour) et 3")
                                 plt.show()
+                                pygame.quit()
+                                sys.exit()
                             break
 if __name__ == '__main__':
     main()

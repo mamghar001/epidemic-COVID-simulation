@@ -1,910 +1,179 @@
 ################################# 6 mois
 
-PROBA_DEATH = 50 
-CONTAGION_RATE = 4.5 
-INFECTION_TIME = 10 
-MAX_CONNECTED_NEIGHBOURS = 50 
-VACCINATION_RATE = 0
-TYPE_GRAPH = "CUBIC" 
-nb_rows = 50
-nb_cols = 50
-PARTY_TIME = 180 (6 mois)
-TYPE_STATE = "dynamic"
-k2 = 2
-==============>
+==============================================================
 
-number of Healthy :  2498
-number of Immune :  0
-number of ILL :  2
-number of Dead :  0
-----Next Day ----
-number of Healthy :  2497
-number of Immune :  0
-number of ILL :  3
-number of Dead :  0
-----Next Day ----
-number of Healthy :  2494
-number of Immune :  0
-number of ILL :  6
-number of Dead :  0
-----Next Day ----
-number of Healthy :  2492
-number of Immune :  0
-number of ILL :  8
-number of Dead :  0
-----Next Day ----
-number of Healthy :  2490
-number of Immune :  0
-number of ILL :  10
-number of Dead :  0
-----Next Day ----
-number of Healthy :  2487
-number of Immune :  0
-number of ILL :  13
-number of Dead :  0
-----Next Day ----
-number of Healthy :  2483
-number of Immune :  0
-number of ILL :  17
-number of Dead :  0
-----Next Day ----
-number of Healthy :  2481
-number of Immune :  0
-number of ILL :  19
-number of Dead :  0
-----Next Day ----
-number of Healthy :  2477
-number of Immune :  0
-number of ILL :  23
-number of Dead :  0
-----Next Day ----
-number of Healthy :  2475
-number of Immune :  0
-number of ILL :  25
-number of Dead :  0
-----Next Day ----
-number of Healthy :  2469
-number of Immune :  1
-number of ILL :  30
-number of Dead :  0
-----Next Day ----
-number of Healthy :  2468
-number of Immune :  1
-number of ILL :  30
-number of Dead :  1
-----Next Day ----
-number of Healthy :  2465
-number of Immune :  3
-number of ILL :  29
-number of Dead :  3
-----Next Day ----
-number of Healthy :  2454
-number of Immune :  3
-number of ILL :  40
-number of Dead :  3
-----Next Day ----
-number of Healthy :  2448
-number of Immune :  4
-number of ILL :  43
-number of Dead :  5
-----Next Day ----
-number of Healthy :  2438
-number of Immune :  7
-number of ILL :  50
-number of Dead :  5
-----Next Day ----
-number of Healthy :  2429
-number of Immune :  8
-number of ILL :  56
-number of Dead :  7
-----Next Day ----
-number of Healthy :  2424
-number of Immune :  9
-number of ILL :  57
-number of Dead :  10
-----Next Day ----
-number of Healthy :  2414
-number of Immune :  9
-number of ILL :  66
-number of Dead :  11
-----Next Day ----
-number of Healthy :  2404
-number of Immune :  10
-number of ILL :  72
-number of Dead :  14
-----Next Day ----
-number of Healthy :  2394
-number of Immune :  13
-number of ILL :  78
-number of Dead :  15
-----Next Day ----
-number of Healthy :  2388
-number of Immune :  15
-number of ILL :  81
-number of Dead :  16
-----Next Day ----
-number of Healthy :  2375
-number of Immune :  17
-number of ILL :  91
-number of Dead :  17
-----Next Day ----
-number of Healthy :  2365
-number of Immune :  20
-number of ILL :  94
-number of Dead :  21
-----Next Day ----
-number of Healthy :  2354
-number of Immune :  23
-number of ILL :  98
-number of Dead :  25
-----Next Day ----
-number of Healthy :  2349
-number of Immune :  30
-number of ILL :  92
-number of Dead :  29
-----Next Day ----
-number of Healthy :  2342
-number of Immune :  36
-number of ILL :  89
-number of Dead :  33
-----Next Day ----
-number of Healthy :  2335
-number of Immune :  39
-number of ILL :  93
-number of Dead :  33
-----Next Day ----
-number of Healthy :  2326
-number of Immune :  43
-number of ILL :  93
-number of Dead :  38
-----Next Day ----
-number of Healthy :  2316
-number of Immune :  50
-number of ILL :  91
-number of Dead :  43
-----Next Day ----
-number of Healthy :  2312
-number of Immune :  55
-number of ILL :  83
-number of Dead :  50
-----Next Day ----
-number of Healthy :  2308
-number of Immune :  57
-number of ILL :  84
-number of Dead :  51
-----Next Day ----
-number of Healthy :  2302
-number of Immune :  64
-number of ILL :  76
-number of Dead :  58
-----Next Day ----
-number of Healthy :  2295
-number of Immune :  67
-number of ILL :  73
-number of Dead :  65
-----Next Day ----
-number of Healthy :  2282
-number of Immune :  70
-number of ILL :  76
-number of Dead :  72
-----Next Day ----
-number of Healthy :  2276
-number of Immune :  76
-number of ILL :  74
-number of Dead :  74
-----Next Day ----
-number of Healthy :  2265
-number of Immune :  77
-number of ILL :  81
-number of Dead :  77
-----Next Day ----
-number of Healthy :  2260
-number of Immune :  82
-number of ILL :  77
-number of Dead :  81
-----Next Day ----
-number of Healthy :  2251
-number of Immune :  85
-number of ILL :  78
-number of Dead :  86
-----Next Day ----
-number of Healthy :  2245
-number of Immune :  92
-number of ILL :  73
-number of Dead :  90
-----Next Day ----
-number of Healthy :  2234
-number of Immune :  95
-number of ILL :  79
-number of Dead :  92
-----Next Day ----
-number of Healthy :  2226
-number of Immune :  97
-number of ILL :  84
-number of Dead :  93
-----Next Day ----
-number of Healthy :  2211
-number of Immune :  100
-number of ILL :  92
-number of Dead :  97
-----Next Day ----
-number of Healthy :  2200
-number of Immune :  103
-number of ILL :  99
-number of Dead :  98
-----Next Day ----
-number of Healthy :  2191
-number of Immune :  109
-number of ILL :  94
-number of Dead :  106
-----Next Day ----
-number of Healthy :  2174
-number of Immune :  111
-number of ILL :  103
-number of Dead :  112
-----Next Day ----
-number of Healthy :  2160
-number of Immune :  114
-number of ILL :  110
-number of Dead :  116
-----Next Day ----
-number of Healthy :  2153
-number of Immune :  119
-number of ILL :  110
-number of Dead :  118
-----Next Day ----
-number of Healthy :  2142
-number of Immune :  123
-number of ILL :  113
-number of Dead :  122
-----Next Day ----
-number of Healthy :  2131
-number of Immune :  125
-number of ILL :  116
-number of Dead :  128
-----Next Day ----
-number of Healthy :  2118
-number of Immune :  127
-number of ILL :  121
-number of Dead :  134
-----Next Day ----
-number of Healthy :  2103
-number of Immune :  128
-number of ILL :  127
-number of Dead :  142
-----Next Day ----
-number of Healthy :  2093
-number of Immune :  142
-number of ILL :  118
-number of Dead :  147
-----Next Day ----
-number of Healthy :  2079
-number of Immune :  145
-number of ILL :  127
-number of Dead :  149
-----Next Day ----
-number of Healthy :  2067
-number of Immune :  155
-number of ILL :  126
-number of Dead :  152
-----Next Day ----
-number of Healthy :  2055
-number of Immune :  162
-number of ILL :  123
-number of Dead :  160
-----Next Day ----
-number of Healthy :  2040
-number of Immune :  169
-number of ILL :  125
-number of Dead :  166
-----Next Day ----
-number of Healthy :  2026
-number of Immune :  175
-number of ILL :  129
-number of Dead :  170
-----Next Day ----
-number of Healthy :  2012
-number of Immune :  178
-number of ILL :  131
-number of Dead :  179
-----Next Day ----
-number of Healthy :  1996
-number of Immune :  181
-number of ILL :  137
-number of Dead :  186
-----Next Day ----
-number of Healthy :  1984
-number of Immune :  185
-number of ILL :  138
-number of Dead :  193
-----Next Day ----
-number of Healthy :  1969
-number of Immune :  198
-number of ILL :  137
-number of Dead :  196
-----Next Day ----
-number of Healthy :  1948
-number of Immune :  202
-number of ILL :  149
-number of Dead :  201
-----Next Day ----
-number of Healthy :  1933
-number of Immune :  206
-number of ILL :  150
-number of Dead :  211
-----Next Day ----
-number of Healthy :  1926
-number of Immune :  213
-number of ILL :  144
-number of Dead :  217
-----Next Day ----
-number of Healthy :  1907
-number of Immune :  218
-number of ILL :  151
-number of Dead :  224
-----Next Day ----
-number of Healthy :  1894
-number of Immune :  224
-number of ILL :  152
-number of Dead :  230
-----Next Day ----
-number of Healthy :  1879
-number of Immune :  233
-number of ILL :  151
-number of Dead :  237
-----Next Day ----
-number of Healthy :  1864
-number of Immune :  242
-number of ILL :  152
-number of Dead :  242
-----Next Day ----
-number of Healthy :  1845
-number of Immune :  249
-number of ILL :  156
-number of Dead :  250
-----Next Day ----
-number of Healthy :  1835
-number of Immune :  258
-number of ILL :  150
-number of Dead :  257
-----Next Day ----
-number of Healthy :  1818
-number of Immune :  263
-number of ILL :  158
-number of Dead :  261
-----Next Day ----
-number of Healthy :  1802
-number of Immune :  275
-number of ILL :  151
-number of Dead :  272
-----Next Day ----
-number of Healthy :  1784
-number of Immune :  284
-number of ILL :  154
-number of Dead :  278
-----Next Day ----
-number of Healthy :  1770
-number of Immune :  289
-number of ILL :  158
-number of Dead :  283
-----Next Day ----
-number of Healthy :  1754
-number of Immune :  295
-number of ILL :  160
-number of Dead :  291
-----Next Day ----
-number of Healthy :  1736
-number of Immune :  302
-number of ILL :  161
-number of Dead :  301
-----Next Day ----
-number of Healthy :  1714
-number of Immune :  306
-number of ILL :  171
-number of Dead :  309
-----Next Day ----
-number of Healthy :  1702
-number of Immune :  313
-number of ILL :  167
-number of Dead :  318
-----Next Day ----
-number of Healthy :  1680
-number of Immune :  322
-number of ILL :  169
-number of Dead :  329
-----Next Day ----
-number of Healthy :  1669
-number of Immune :  327
-number of ILL :  170
-number of Dead :  334
-----Next Day ----
-number of Healthy :  1649
-number of Immune :  330
-number of ILL :  176
-number of Dead :  345
-----Next Day ----
-number of Healthy :  1636
-number of Immune :  336
-number of ILL :  175
-number of Dead :  353
-----Next Day ----
-number of Healthy :  1618
-number of Immune :  354
-number of ILL :  170
-number of Dead :  358
-----Next Day ----
-number of Healthy :  1603
-number of Immune :  363
-number of ILL :  168
-number of Dead :  366
-----Next Day ----
-number of Healthy :  1589
-number of Immune :  368
-number of ILL :  172
-number of Dead :  371
-----Next Day ----
-number of Healthy :  1569
-number of Immune :  376
-number of ILL :  172
-number of Dead :  383
-----Next Day ----
-number of Healthy :  1545
-number of Immune :  388
-number of ILL :  175
-number of Dead :  392
-----Next Day ----
-number of Healthy :  1524
-number of Immune :  399
-number of ILL :  182
-number of Dead :  395
-----Next Day ----
-number of Healthy :  1509
-number of Immune :  411
-number of ILL :  175
-number of Dead :  405
-----Next Day ----
-number of Healthy :  1493
-number of Immune :  415
-number of ILL :  182
-number of Dead :  410
-----Next Day ----
-number of Healthy :  1473
-number of Immune :  421
-number of ILL :  186
-number of Dead :  420
-----Next Day ----
-number of Healthy :  1458
-number of Immune :  433
-number of ILL :  180
-number of Dead :  429
-----Next Day ----
-number of Healthy :  1441
-number of Immune :  443
-number of ILL :  181
-number of Dead :  435
-----Next Day ----
-number of Healthy :  1421
-number of Immune :  450
-number of ILL :  186
-number of Dead :  443
-----Next Day ----
-number of Healthy :  1403
-number of Immune :  463
-number of ILL :  189
-number of Dead :  445
-----Next Day ----
-number of Healthy :  1377
-number of Immune :  472
-number of ILL :  199
-number of Dead :  452
-----Next Day ----
-number of Healthy :  1358
-number of Immune :  481
-number of ILL :  193
-number of Dead :  468
-----Next Day ----
-number of Healthy :  1328
-number of Immune :  490
-number of ILL :  203
-number of Dead :  479
-----Next Day ----
-number of Healthy :  1302
-number of Immune :  494
-number of ILL :  217
-number of Dead :  487
-----Next Day ----
-number of Healthy :  1274
-number of Immune :  502
-number of ILL :  225
-number of Dead :  499
-----Next Day ----
-number of Healthy :  1243
-number of Immune :  510
-number of ILL :  240
-number of Dead :  507
-----Next Day ----
-number of Healthy :  1214
-number of Immune :  520
-number of ILL :  248
-number of Dead :  518
-----Next Day ----
-number of Healthy :  1186
-number of Immune :  532
-number of ILL :  257
-number of Dead :  525
-----Next Day ----
-number of Healthy :  1158
-number of Immune :  539
-number of ILL :  272
-number of Dead :  531
-----Next Day ----
-number of Healthy :  1133
-number of Immune :  547
-number of ILL :  277
-number of Dead :  543
-----Next Day ----
-number of Healthy :  1104
-number of Immune :  556
-number of ILL :  283
-number of Dead :  557
-----Next Day ----
-number of Healthy :  1078
-number of Immune :  567
-number of ILL :  288
-number of Dead :  567
-----Next Day ----
-number of Healthy :  1048
-number of Immune :  576
-number of ILL :  290
-number of Dead :  586
-----Next Day ----
-number of Healthy :  1024
-number of Immune :  588
-number of ILL :  291
-number of Dead :  597
-----Next Day ----
-number of Healthy :  998
-number of Immune :  602
-number of ILL :  283
-number of Dead :  617
-----Next Day ----
-number of Healthy :  965
-number of Immune :  612
-number of ILL :  292
-number of Dead :  631
-----Next Day ----
-number of Healthy :  924
-number of Immune :  632
-number of ILL :  300
-number of Dead :  644
-----Next Day ----
-number of Healthy :  897
-number of Immune :  648
-number of ILL :  296
-number of Dead :  659
-----Next Day ----
-number of Healthy :  863
-number of Immune :  663
-number of ILL :  306
-number of Dead :  668
-----Next Day ----
-number of Healthy :  829
-number of Immune :  672
-number of ILL :  315
-number of Dead :  684
-----Next Day ----
-number of Healthy :  798
-number of Immune :  689
-number of ILL :  316
-number of Dead :  697
-----Next Day ----
-number of Healthy :  768
-number of Immune :  704
-number of ILL :  318
-number of Dead :  710
-----Next Day ----
-number of Healthy :  742
-number of Immune :  717
-number of ILL :  316
-number of Dead :  725
-----Next Day ----
-number of Healthy :  705
-number of Immune :  731
-number of ILL :  327
-number of Dead :  737
-----Next Day ----
-number of Healthy :  679
-number of Immune :  744
-number of ILL :  329
-number of Dead :  748
-----Next Day ----
-number of Healthy :  647
-number of Immune :  756
-number of ILL :  330
-number of Dead :  767
-----Next Day ----
-number of Healthy :  626
-number of Immune :  782
-number of ILL :  310
-number of Dead :  782
-----Next Day ----
-number of Healthy :  605
-number of Immune :  792
-number of ILL :  303
-number of Dead :  800
-----Next Day ----
-number of Healthy :  578
-number of Immune :  807
-number of ILL :  291
-number of Dead :  824
-----Next Day ----
-number of Healthy :  545
-number of Immune :  823
-number of ILL :  292
-number of Dead :  840
-----Next Day ----
-number of Healthy :  509
-number of Immune :  836
-number of ILL :  301
-number of Dead :  854
-----Next Day ----
-number of Healthy :  481
-number of Immune :  850
-number of ILL :  300
-number of Dead :  869
-----Next Day ----
-number of Healthy :  461
-number of Immune :  860
-number of ILL :  290
-number of Dead :  889
-----Next Day ----
-number of Healthy :  444
-number of Immune :  880
-number of ILL :  268
-number of Dead :  908
-----Next Day ----
-number of Healthy :  426
-number of Immune :  891
-number of ILL :  261
-number of Dead :  922
-----Next Day ----
-number of Healthy :  404
-number of Immune :  906
-number of ILL :  257
-number of Dead :  933
-----Next Day ----
-number of Healthy :  390
-number of Immune :  919
-number of ILL :  241
-number of Dead :  950
-----Next Day ----
-number of Healthy :  372
-number of Immune :  927
-number of ILL :  239
-number of Dead :  962
-----Next Day ----
-number of Healthy :  350
-number of Immune :  937
-number of ILL :  236
-number of Dead :  977
-----Next Day ----
-number of Healthy :  337
-number of Immune :  948
-number of ILL :  220
-number of Dead :  995
-----Next Day ----
-number of Healthy :  320
-number of Immune :  963
-number of ILL :  207
-number of Dead :  1010
-----Next Day ----
-number of Healthy :  309
-number of Immune :  982
-number of ILL :  184
-number of Dead :  1025
-----Next Day ----
-number of Healthy :  292
-number of Immune :  993
-number of ILL :  178
-number of Dead :  1037
-----Next Day ----
-number of Healthy :  276
-number of Immune :  1004
-number of ILL :  175
-number of Dead :  1045
-----Next Day ----
-number of Healthy :  259
-number of Immune :  1016
-number of ILL :  175
-number of Dead :  1050
-----Next Day ----
-number of Healthy :  245
-number of Immune :  1026
-number of ILL :  169
-number of Dead :  1060
-----Next Day ----
-number of Healthy :  222
-number of Immune :  1034
-number of ILL :  173
-number of Dead :  1071
-----Next Day ----
-number of Healthy :  201
-number of Immune :  1040
-number of ILL :  177
-number of Dead :  1082
-----Next Day ----
-number of Healthy :  182
-number of Immune :  1051
-number of ILL :  176
-number of Dead :  1091
-----Next Day ----
-number of Healthy :  164
-number of Immune :  1058
-number of ILL :  178
-number of Dead :  1100
-----Next Day ----
-number of Healthy :  144
-number of Immune :  1066
-number of ILL :  181
-number of Dead :  1109
-----Next Day ----
-number of Healthy :  125
-number of Immune :  1070
-number of ILL :  190
-number of Dead :  1115
-----Next Day ----
-number of Healthy :  113
-number of Immune :  1083
-number of ILL :  181
-number of Dead :  1123
-----Next Day ----
-number of Healthy :  101
-number of Immune :  1089
-number of ILL :  180
-number of Dead :  1130
-----Next Day ----
-number of Healthy :  88
-number of Immune :  1095
-number of ILL :  176
-number of Dead :  1141
-----Next Day ----
-number of Healthy :  75
-number of Immune :  1103
-number of ILL :  174
-number of Dead :  1148
-----Next Day ----
-number of Healthy :  68
-number of Immune :  1113
-number of ILL :  160
-number of Dead :  1159
-----Next Day ----
-number of Healthy :  58
-number of Immune :  1120
-number of ILL :  150
-number of Dead :  1172
-----Next Day ----
-number of Healthy :  50
-number of Immune :  1130
-number of ILL :  138
-number of Dead :  1182
-----Next Day ----
-number of Healthy :  44
-number of Immune :  1142
-number of ILL :  125
-number of Dead :  1189
-----Next Day ----
-number of Healthy :  41
-number of Immune :  1150
-number of ILL :  109
-number of Dead :  1200
-----Next Day ----
-number of Healthy :  37
-number of Immune :  1152
-number of ILL :  99
-number of Dead :  1212
-----Next Day ----
-number of Healthy :  34
-number of Immune :  1159
-number of ILL :  83
-number of Dead :  1224
-----Next Day ----
-number of Healthy :  33
-number of Immune :  1169
-number of ILL :  71
-number of Dead :  1227
-----Next Day ----
-number of Healthy :  33
-number of Immune :  1175
-number of ILL :  61
-number of Dead :  1231
-----Next Day ----
-number of Healthy :  32
-number of Immune :  1184
-number of ILL :  47
-number of Dead :  1237
-----Next Day ----
-number of Healthy :  31
-number of Immune :  1187
-number of ILL :  42
-number of Dead :  1240
-----Next Day ----
-number of Healthy :  31
-number of Immune :  1189
-number of ILL :  32
-number of Dead :  1248
-----Next Day ----
-number of Healthy :  31
-number of Immune :  1194
-number of ILL :  21
-number of Dead :  1254
-----Next Day ----
-number of Healthy :  31
-number of Immune :  1197
-number of ILL :  14
-number of Dead :  1258
-----Next Day ----
-number of Healthy :  31
-number of Immune :  1200
-number of ILL :  10
-number of Dead :  1259
-----Next Day ----
-number of Healthy :  31
-number of Immune :  1202
-number of ILL :  7
-number of Dead :  1260
-----Next Day ----
-number of Healthy :  31
-number of Immune :  1204
-number of ILL :  4
-number of Dead :  1261
-----Next Day ----
-number of Healthy :  31
-number of Immune :  1206
-number of ILL :  2
-number of Dead :  1261
-----Next Day ----
-number of Healthy :  31
-number of Immune :  1206
-number of ILL :  2
-number of Dead :  1261
-----Next Day ----
-number of Healthy :  31
-number of Immune :  1207
-number of ILL :  1
-number of Dead :  1261
-----Next Day ----
-number of Healthy :  31
-number of Immune :  1207
-number of ILL :  0
-number of Dead :  1262
-----Next Day ----
-number of Healthy :  31
-number of Immune :  1207
-number of ILL :  0
-number of Dead :  1262
-----Next Day ----
-number of Healthy :  31
-number of Immune :  1207
-number of ILL :  0
-number of Dead :  1262
-----Next Day ----
-number of Healthy :  31
-number of Immune :  1207
-number of ILL :  0
-number of Dead :  1262
-----Next Day ----
-number of Healthy :  31
-number of Immune :  1207
-number of ILL :  0
-number of Dead :  1262
-----Next Day ----
-number of Healthy :  31
-number of Immune :  1207
-number of ILL :  0
-number of Dead :  1262
-----Next Day ----
-number of Healthy :  31
-number of Immune :  1207
-number of ILL :  0
-number of Dead :  1262
-----Next Day ----
+105 Deaths for :
+
+
+PROBA_DEATH = 3.5 #3.5% is realistic #https://www.worldometers.info/coronavirus/coronavirus-death-rate/
+                       #. the black plague was 100%. smallpox was ~30%-35%
+CONTAGION_RATE = 4  # This is the R0 factor.
+INFECTION_TIME = 14 # 14 is realistic
+MAX_CONNECTED_NEIGHBOURS = 50 # k
+
+VACCINATION_RATE = 0
+SIMULATION_SPEED = 60   # time between days in milliseconds. 0: fastest.
+                        # 500 means every day the simulation pauses for 500 ms
+                        # 25 is good for watching
+TYPE_GRAPH = "PERSONALISED" # "CIRCULAR","PERSONALISED", "ALEATORY","MIX"
+nb_rows = 50 #taille graphe > 5
+nb_cols = 50 #taille graphe > 5
+
+PARTY_TIME = 180 #180 (6 mois)
+TYPE_STATE = "dynamic" # "static" or "dynamic"
+k2 = 1  #this is k' (or in code : in_touch)
+
+case_confined =0
+
+================================================================
+
+
+==============================================================
+
+83 Deaths for :
+
+
+PROBA_DEATH = 3.5 #3.5% is realistic #https://www.worldometers.info/coronavirus/coronavirus-death-rate/
+                       #. the black plague was 100%. smallpox was ~30%-35%
+CONTAGION_RATE = 4  # This is the R0 factor.
+INFECTION_TIME = 14 # 14 is realistic
+MAX_CONNECTED_NEIGHBOURS = 50 # k
+
+VACCINATION_RATE = 0
+SIMULATION_SPEED = 60   # time between days in milliseconds. 0: fastest.
+                        # 500 means every day the simulation pauses for 500 ms
+                        # 25 is good for watching
+TYPE_GRAPH = "PERSONALISED" # "CIRCULAR","PERSONALISED", "ALEATORY","MIX"
+nb_rows = 50 #taille graphe > 5
+nb_cols = 50 #taille graphe > 5
+
+PARTY_TIME = 180 #180 (6 mois)
+TYPE_STATE = "dynamic" # "static" or "dynamic"
+k2 = 1  #this is k' (or in code : in_touch)
+
+case_confined = 1
+
+================================================================
+
+68 Deaths for :
+
+
+PROBA_DEATH = 3.5 #3.5% is realistic #https://www.worldometers.info/coronavirus/coronavirus-death-rate/
+                       #. the black plague was 100%. smallpox was ~30%-35%
+CONTAGION_RATE = 4  # This is the R0 factor.
+INFECTION_TIME = 14 # 14 is realistic
+MAX_CONNECTED_NEIGHBOURS = 50 # k
+
+VACCINATION_RATE = 0
+SIMULATION_SPEED = 60   # time between days in milliseconds. 0: fastest.
+                        # 500 means every day the simulation pauses for 500 ms
+                        # 25 is good for watching
+TYPE_GRAPH = "PERSONALISED" # "CIRCULAR","PERSONALISED", "ALEATORY","MIX"
+nb_rows = 50 #taille graphe > 5
+nb_cols = 50 #taille graphe > 5
+
+PARTY_TIME = 180 #180 (6 mois)
+TYPE_STATE = "dynamic" # "static" or "dynamic"
+k2 = 1  #this is k' (or in code : in_touch)
+
+case_confined = 2
+
+================================================================
+
+107 Deaths for :
+
+PROBA_DEATH = 3.5 #3.5% is realistic #https://www.worldometers.info/coronavirus/coronavirus-death-rate/
+                       #. the black plague was 100%. smallpox was ~30%-35%
+CONTAGION_RATE = 4  # This is the R0 factor.
+INFECTION_TIME = 14 # 14 is realistic
+MAX_CONNECTED_NEIGHBOURS = 50 # k
+
+VACCINATION_RATE = 0
+SIMULATION_SPEED = 60   # time between days in milliseconds. 0: fastest.
+                        # 500 means every day the simulation pauses for 500 ms
+                        # 25 is good for watching
+TYPE_GRAPH = "PERSONALISED" # "CIRCULAR","PERSONALISED", "ALEATORY","MIX"
+nb_rows = 50 #taille graphe > 5
+nb_cols = 50 #taille graphe > 5
+
+PARTY_TIME = 180 #180 (6 mois)
+TYPE_STATE = "dynamic" # "static" or "dynamic"
+k2 = 1  #this is k' (or in code : in_touch)
+
+case_confined = 3 with 20 tests/jour 
+
+================================================================
+
+
+45 Deaths for :
+
+PROBA_DEATH = 3.5 #3.5% is realistic #https://www.worldometers.info/coronavirus/coronavirus-death-rate/
+                       #. the black plague was 100%. smallpox was ~30%-35%
+CONTAGION_RATE = 4  # This is the R0 factor.
+INFECTION_TIME = 14 # 14 is realistic
+MAX_CONNECTED_NEIGHBOURS = 50 # k
+
+VACCINATION_RATE = 0
+SIMULATION_SPEED = 60   # time between days in milliseconds. 0: fastest.
+                        # 500 means every day the simulation pauses for 500 ms
+                        # 25 is good for watching
+TYPE_GRAPH = "PERSONALISED" # "CIRCULAR","PERSONALISED", "ALEATORY","MIX"
+nb_rows = 50 #taille graphe > 5
+nb_cols = 50 #taille graphe > 5
+
+PARTY_TIME = 180 #180 (6 mois)
+TYPE_STATE = "dynamic" # "static" or "dynamic"
+k2 = 1  #this is k' (or in code : in_touch)
+
+case_confined = 3 with 100 tests/jour !!! 
+
+================================================================
+
+70 Deaths for :
+
+PROBA_DEATH = 3.5 #3.5% is realistic #https://www.worldometers.info/coronavirus/coronavirus-death-rate/
+                       #. the black plague was 100%. smallpox was ~30%-35%
+CONTAGION_RATE = 4  # This is the R0 factor.
+INFECTION_TIME = 14 # 14 is realistic
+MAX_CONNECTED_NEIGHBOURS = 50 # k
+
+VACCINATION_RATE = 0
+SIMULATION_SPEED = 60   # time between days in milliseconds. 0: fastest.
+                        # 500 means every day the simulation pauses for 500 ms
+                        # 25 is good for watching
+TYPE_GRAPH = "PERSONALISED" # "CIRCULAR","PERSONALISED", "ALEATORY","MIX"
+nb_rows = 50 #taille graphe > 5
+nb_cols = 50 #taille graphe > 5
+
+PARTY_TIME = 180 #180 (6 mois)
+TYPE_STATE = "dynamic" # "static" or "dynamic"
+k2 = 1  #this is k' (or in code : in_touch)
+
+case_confined = 4 with 20 tests/jour  
+
+================================================================
+
+
+1 -> Deaths for :
+
+PROBA_DEATH = 3.5 #3.5% is realistic #https://www.worldometers.info/coronavirus/coronavirus-death-rate/
+                       #. the black plague was 100%. smallpox was ~30%-35%
+CONTAGION_RATE = 4  # This is the R0 factor.
+INFECTION_TIME = 14 # 14 is realistic
+MAX_CONNECTED_NEIGHBOURS = 50 # k
+
+VACCINATION_RATE = 0
+SIMULATION_SPEED = 60   # time between days in milliseconds. 0: fastest.
+                        # 500 means every day the simulation pauses for 500 ms
+                        # 25 is good for watching
+TYPE_GRAPH = "PERSONALISED" # "CIRCULAR","PERSONALISED", "ALEATORY","MIX"
+nb_rows = 50 #taille graphe > 5
+nb_cols = 50 #taille graphe > 5
+
+PARTY_TIME = 180 #180 (6 mois)
+TYPE_STATE = "dynamic" # "static" or "dynamic"
+k2 = 1  #this is k' (or in code : in_touch)
+
+case_confined = 4 with 100 tests/jour  
+
+================================================================
