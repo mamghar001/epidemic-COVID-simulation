@@ -3,3 +3,6 @@ numpy
 sys
 random
 matplotlib
+networkx
+math
+scipy

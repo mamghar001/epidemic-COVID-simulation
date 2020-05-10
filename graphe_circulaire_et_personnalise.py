@@ -15,7 +15,7 @@ SIMULATION_SPEED = 60   # time between days in milliseconds. 0: fastest.
                         # 500 means every day the simulation pauses for 500 ms
                         # 25 is good for watching
                 
-TYPE_GRAPH = "PERSONALISED" # "CIRCULAR","PERSONALISED", "ALEATORY","MIX"
+TYPE_GRAPH = "PERSONALISED" # "CIRCULAR","PERSONALISED"
 TYPE_STATE = "dynamic" # "static" or "dynamic"
 
 PARTY_TIME = 180 #180 (6 month)
