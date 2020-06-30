@@ -1,7 +1,7 @@
 Basic epidemic simulation application (Covid 19)
 ================================
 
-How To Use graphe_circulaire_et_personnalise (done by Mohamed) :
+How To Use graphe_circulaire_et_personnalise (done by me) :
 ---------------
 - `pip install -r requirements.txt`
 
@@ -14,11 +14,14 @@ How To Use graphe_circulaire_et_personnalise (done by Mohamed) :
 
 - Press the Space bar to run the simulation
 
-- Repress the Space bar to show statistics graph
+- Repress the Space bar to show statistics of the simulation
 
 - Enjoy
 
 - Exit the Program
+
+![GitHub Logo](/images/logo.png)
+Format: ![Alt Text](url)
 
 ================================
 
