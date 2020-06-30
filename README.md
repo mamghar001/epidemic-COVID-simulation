@@ -36,7 +36,7 @@ Notes in app :
 
 *The number in the top right (74) is the number of deaths in the simulation*
 
-After simulation, you get the statistics like :
+After simulation, you get its statistics (for example) :
 
 ![GitHub Logo](DATA/cas3.png)
 
