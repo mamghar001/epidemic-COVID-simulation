@@ -20,8 +20,18 @@ How To Use graphe_circulaire_et_personnalise (done by me) :
 
 - Exit the Program
 
-![GitHub Logo](/images/logo.png)
-Format: ![Alt Text](url)
+#Notes
+In app :
+![GitHub Logo](DATA/case1.png)
+**black** is untouched by Covid
+**Green** is immune
+**White** is dead
+**Red** is ill
+**yellow** is confined
+
+*The number in the top right (74) is the number of deaths in the simulation*
+
+
 
 ================================
 
